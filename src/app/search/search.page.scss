@@ -13,11 +13,16 @@
  $headerSize : 20px;
 
 
- 
+
  /* Clases */
 
+ a {
+     color: inherit;
+     text-decoration: none;
+ }
+
 main{
-  background-color: $colorValeLight;
+  background-color: $bgcolor;
   padding: 5% 2.5%;
   color: $textcolor;
   font-size: $fontsize;
@@ -188,4 +193,3 @@ h2{
   font-size: 14px;
   margin: 2.5%;
 }
-

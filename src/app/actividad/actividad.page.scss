@@ -12,11 +12,12 @@ $colorValeDark : #356061;
 $headerSize : 20px;
 
 main{
-  background-color: $colorValeLight;
+  background-color: $bgcolor;
   padding: 5% 2.5%;
   color: $textcolor;
-  font-size: $fontsize;
-  font-family: $fontFamily;
+  //font-size: $fontsize;
+  //font-family: $fontFamily;
+  height: calc(100vh - 110px); /*AJUSTAR, no esta bien definido la altura*/
 }
 
 h2 {
@@ -25,6 +26,9 @@ h2 {
 
 hr {
     background: black;
+}
+
+ion-button{
 }
 
 .blep {

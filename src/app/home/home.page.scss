@@ -7,9 +7,6 @@
  $minfontsize : 12px;
  $minButtonSize: 48 dp;
  $fontFamily: Tahoma;
- $colorValeLight : #E8F6DA;
- $colorValeMain : #2C8B80;
- $colorValeDark : #356061;
  $headerSize : 20px;
 
 
@@ -21,7 +18,7 @@
  }
 
 main{
-  background-color: $colorValeLight;
+  background-color: $bgcolor;
   padding: 7.5% 2.5%;
   color: $textcolor;
   font-size: $fontsize;
@@ -29,7 +26,7 @@ main{
 }
 
 #busqueda{
-  background-color: $colorValeMain;
+  background-color: $textcolor;
   padding: 2.5%;
   display: flex;
   align-items: center;
@@ -76,7 +73,7 @@ main{
 
   border-radius: 2px;
   border-width: 7.5px;
-  border-color:  $colorValeMain ;
+  border-color:  $textcolor ;
   border-style: inset;
 }
 
