@@ -5,6 +5,7 @@ const routes: Routes = [
   {path: '', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)},
   { path: 'search', loadChildren: './search/search.module#SearchPageModule' },
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },  { path: 'actividad', loadChildren: './actividad/actividad.module#ActividadPageModule' },
+  { path: 'myActivities', loadChildren: './myActivities/myActivities.module#myActivitiesPageModule' },
   { path: 'valoracion', loadChildren: './valoracion/valoracion.module#ValoracionPageModule' },
   { path: 'masinfo', loadChildren: './actividad/masinfo/masinfo.module#MasinfoPageModule' },
   { path: 'chat', loadChildren: './actividad/chat/chat.module#ChatPageModule' },
