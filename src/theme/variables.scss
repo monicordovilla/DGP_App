@@ -3,6 +3,12 @@
 hr {
     background: black;
 }
+
+.scroll_y {
+    overflow-y: hidden;
+    position: relative;
+}
+
 /** Ionic CSS Variables **/
 :root {
   /** primary **/
