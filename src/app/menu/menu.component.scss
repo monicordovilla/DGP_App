@@ -1,0 +1,51 @@
+ /* Variables estandar para la página*/
+ $bgcolor: #FEFEFE;
+ $bgcolorSec: #EAEAEA;
+ $textcolor: #063940;
+ $textcolorSec: #050505;
+ $fontsize: 30px;
+ $minfontsize : 12px;
+ $minButtonSize: 48 dp;
+ $fontFamily: Tahoma;
+ $colorValeLight : #E8F6DA;
+ $colorValeMain : #2C8B80;
+ $colorValeDark : #356061;
+ $headerSize : 20px;
+
+
+a{
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-style: solid;
+    border-width: 4px;
+    text-align: center;
+
+}
+
+header{
+    padding: $headerSize;
+    color: white;
+  
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+
+a:hover {
+    color: lightsalmon;
+  }
+
+
+header > ion-button > img{
+    width: 50px;
+  }
+
+
+ion-menu{
+  --width: 50%;
+}
