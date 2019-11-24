@@ -74,7 +74,7 @@ main{
   width: 100%;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: row;
   justify-content: center;
   padding: 3%;
   margin: 5%;
@@ -85,7 +85,7 @@ main{
   border-style: inset;
 }
 
-#lista > .actividad > img{
+#lista > .actividad > a{
   width: 50%;
 }
 
