@@ -1,9 +1,9 @@
 <ion-menu menuId="menu" contentId="principal">
   <header>
-    <ion-button color="dark" (click)="toggleMenu()" slot="start"> <img src="../assets/icon/menu.png" alt="menu"/> </ion-button>
+    <ion-button color="dark" fill="clear" (click)="toggleMenu()" slot="start"> <img src="../assets/icon/menu.png" alt="menu"/> </ion-button>
   </header>
   <ion-content color="dark">
-    <ion-list>
+    <ion-list lines="none" inset="false" mode="ios">
       <div class="normal">
         <ion-item color="dark"><a href='/home'>Recomendados</a></ion-item>
         <ion-item color="dark"><a href='/search'>Buscar</a></ion-item>
