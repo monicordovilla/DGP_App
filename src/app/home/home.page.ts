@@ -7,6 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss']
 })
 export class HomePage {
+  actividad = {
+    "nombreActividad": "Patinaje", 
+    "descripcion": "ejemplo de actividad con procedure",
+    "lugar": "Granada",
+    "fecha":"2019-12-12 17:30",
+    "duracion": 3
+  }
+
   constructor(){}
 
 

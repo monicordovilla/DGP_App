@@ -4,7 +4,7 @@
 
 <ion-content>
 <main>
-    <h1 class="ion-text-center">Titulo</h1>
+    <h1 class="ion-text-center">{{actividad.nombreActividad}}</h1>
 
     <hr>
 
@@ -14,21 +14,21 @@
                 <img src="../assets/img/imagen.jpg" alt="imagen actividad">
             </ion-col>
             <ion-col>
-                <span class="blep">Fecha:</span> lorem
-                <span class="blep">Lugar:</span> lorem
-                <span class="blep">Organizador:</span> lorem
+                <p><span class="blep">Fecha:</span> {{actividad.fecha}}</p>
+                <p><span class="blep">Lugar:</span> {{actividad.lugar}}</p>
+                <p><span class="blep">Organizador:</span> lorem </p>
             </ion-col>
         </ion-row>
     </ion-grid>
 
-    <div class="ion-text-center">
-        <ion-button expand="block" color="dark" class="button-danger" href="/valoracion">Cancelar/Apuntarse/Valorar</ion-button>
+    <div id="botones" class="ion-text-center" >
+        <ion-button color="dark" href="/valoracion">Cancelar/Apuntarse/Valorar</ion-button>
 
         <hr>
 
-        <ion-button expand="block" color="dark" class="button-small" href="/chat">Chat de actividad</ion-button>
-        <ion-button expand="block" color="dark" class="button-small" href="/masinfo">Más información de la actividad</ion-button>
-        <ion-button expand="block" color="dark" class="button-small" href="/participantes">Ver participantes</ion-button>
+        <ion-button expand="block" color="dark" href="/chat">Chat de actividad</ion-button>
+        <ion-button expand="block" color="dark" href="/masinfo">Más información de la actividad</ion-button>
+        <ion-button expand="block" color="dark" href="/participantes">Ver participantes</ion-button>
 
     </div>
 </main>
