@@ -67,10 +67,7 @@ h2{
 
 #lista > .actividad{
   width: 100%;
-  display: flex;
-  align-items: center;
-  flex-wrap: row;
-  justify-content: center;
+  
 
   border-radius: 20px;
   border-width: 0.1em;
@@ -80,7 +77,15 @@ h2{
   padding-top: 2%;
 }
 
-#lista > .actividad > #contenido1{
+#lista >.actividad > #contenido{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: row;
+  justify-content: center;
+}
+
+#lista > .actividad >#contenido > #datos{
   width: 50%;
   align-items: center;
   flex-wrap: row;
@@ -88,37 +93,38 @@ h2{
   padding: 0;
   margin: 0;
   padding-left: 2%;
+  
 }
 
-#lista > .actividad > #contenido1 > a{
-  width: 100%;
+#lista > .actividad > #contenido > a{
+  width: 50%;
 }
 
-#lista > .actividad > #contenido1 > h3{
+#lista > .actividad > h3{
   font-size: 16px;
   text-align: center;
   margin-top: 0;
   font-weight: bold;
 }
 
-#lista > .actividad > #contenido2{
+#lista > .actividad > #contenido > #datos{
   width: 55%;
   padding-left: 5%;
   text-align: center;
 }
 
-#lista > .actividad > #contenido2 > h4{
+#lista > .actividad > #contenido > #datos > h4{
   font-size: 16px;
   margin: 2.5%;
 }
 
-#lista > .actividad > #contenido2 > #categorias{
+#lista > .actividad > #contenido > #datos > #categorias{
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-#lista > .actividad > #contenido2 > #categorias > .categorias{
+#lista > .actividad > #contenido > #datos > #categorias > .categorias{
   width: 30%;
 }

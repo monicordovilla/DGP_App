@@ -10,9 +10,9 @@ $headerSize : 20px;
 
 main{
   background-color: $bgcolor;
-  padding: 5% 2.5%;
+  padding: 2.5% 2.5%;
   color: $textcolor;
-  font-family: $fontFamily;
+  //font-family: $fontFamily;
   height: calc(100vh - 110px); /*AJUSTAR, no esta bien definido la altura*/
 }
 
@@ -40,5 +40,14 @@ hr {
 
 #botones > ion-button{
   margin-bottom: 10px;
-  margin-top: 15px;
+  margin-top: 10px;
+}
+
+ion-row{
+  padding-bottom: 2%;
+}
+
+#categoria > ion-col > img{
+  width: 18%;
+
 }

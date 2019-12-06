@@ -13,11 +13,19 @@
             <ion-col>
                 <img src="../assets/img/imagen.jpg" alt="imagen actividad">
             </ion-col>
-            <ion-col>
-                <p><span class="blep">Fecha:</span> {{actividad.fecha}}</p>
-                <p><span class="blep">Lugar:</span> {{actividad.lugar}}</p>
-                <p><span class="blep">Organizador:</span> lorem </p>
+            <ion-col size="60%">
+                <p><span class="blep">Fecha:</span></p><p>{{actividad.fecha}}</p>
+                <p><span class="blep">Lugar:</span></p><p>{{actividad.lugar}}</p>
+                <p><span class="blep">Duración:</span></p><p>{{duracion}}</p>
             </ion-col>
+        </ion-row>
+        <p><span class="blep">Categorias:</span></p>
+        <ion-row>
+            <div id="categoria">
+            <ion-col ion-item *ngFor="let categoria of categorias">
+                <img src={{categoria.imagen}} alt={{categoria.imagen}}/>
+            </ion-col>
+            </div>
         </ion-row>
     </ion-grid>
 
@@ -26,9 +34,9 @@
 
         <hr>
 
-        <ion-button expand="block" color="dark" href="/chat">Chat de actividad</ion-button>
-        <ion-button expand="block" color="dark" href="/masinfo">Más información de la actividad</ion-button>
-        <ion-button expand="block" color="dark" href="/participantes">Ver participantes</ion-button>
+        <ion-button expand="block" color="dark" href="/chat"><ion-icon name="md-chatboxes" size="large"></ion-icon>Chat de actividad</ion-button>
+        <ion-button expand="block" color="dark" href="/masinfo"><ion-icon name="md-list" size="large"></ion-icon>Más información de la actividad</ion-button>
+        <ion-button expand="block" color="dark" href="/participantes"><ion-icon name="md-people" size="large"></ion-icon>Ver participantes</ion-button>
 
     </div>
 </main>

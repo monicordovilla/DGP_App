@@ -9,19 +9,7 @@ import {ProveedorService} from '../providers/proveedor.service';
 export class HomePage {
 
   actividades=[];
-
-  categorias=[
-    [
-      {
-        "id": 0,
-        "imagen": "http://www.arasaac.org/repositorio/thumbs/10/200/3/30598.png"
-      },
-      {
-        "id": 0,
-        "imagen": "http://www.arasaac.org/repositorio/thumbs/10/200/2/24671.png"
-      }
-    ]
-  ];
+  categorias=[];
 
   constructor(public proveedor:ProveedorService){
     this.ionViewDidLoad();

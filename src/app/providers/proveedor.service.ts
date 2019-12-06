@@ -10,4 +10,8 @@ export class ProveedorService {
   obtenerActividades(): Observable<any>{
     return this.http.get('http://localhost:3000/actividades');
   }
+
+  obtenerCategorias(): Observable<any>{
+    return this.http.get('http://localhost:3000/actividades/categorias');
+  }
 }
