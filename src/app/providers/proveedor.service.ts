@@ -11,7 +11,15 @@ export class ProveedorService {
     return this.http.get('http://localhost:3000/actividades');
   }
 
+  obtenerActividad(i): Observable<any>{
+    return this.http.get('http://localhost:3000/actividades?id='+ i);
+  }
+
   obtenerCategorias(): Observable<any>{
     return this.http.get('http://localhost:3000/actividades/categorias');
+  }
+
+  obtenerCategoriasActividad(i): Observable<any>{
+    return this.http.get('http://localhost:3000/actividades/categoriasDeActividad?id='+i);
   }
 }
