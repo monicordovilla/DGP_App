@@ -21,13 +21,22 @@ export class ActividadPage {
 
   categorias = []
 
+  usuario = 4;
+  esSocio = true;
+  apuntado = true;
+
+  accion="";
+
   constructor(private rutaActiva: ActivatedRoute,  public proveedor:ProveedorService){
     this.rutaActiva.snapshot.params;
+    this.id =  this.rutaActiva.snapshot.params.id;
+    this.id=parseInt(this.id);
     this.ionViewDidLoad();
   }
 
   ionViewDidLoad(){
-    this.id =  this.rutaActiva.snapshot.params.id;
+    let finalizada=false;
+
     this.proveedor.obtenerActividad(this.id).subscribe(
       (data) => {
         console.log(data[0]);
@@ -53,7 +62,12 @@ export class ActividadPage {
         }
         else if(minutos!=0)
           this.actividad.duracion += minutos + " minutos";
-          },
+      
+      
+        let fecha = new Date(parts[0], parts[1]-1, parts[2], parts[3], parts[4]);
+        let actual = new Date();
+        finalizada = actual.getTime() > fecha.getTime();
+      },
       error => {
           console.log(<any>error);
       }
@@ -67,7 +81,42 @@ export class ActividadPage {
           console.log(<any>error);
         }
       )
-    
+
+      this.proveedor.apuntadoActividad(this.usuario, this.id, this.esSocio).subscribe(
+        (data) => {
+          console.log("FINALIZADA: "+ finalizada);
+          if(data[0]!=undefined)
+            if(finalizada)
+              this.accion="Valorar";
+            else
+              this.accion="Desapuntar";
+          else
+            this.accion="Apuntar";         
+        },
+        error => {
+          console.log(<any>error);
+        }
+      )
+
+  }
+
+  realizarAccion(){
+    let postData ={
+      idParticipante: this.usuario,
+      idActividad: this.id
+    };
+
+    if(this.accion=="Apuntar"){
+      this.proveedor.apuntarse(postData, this.esSocio).subscribe(
+        (res) => { 
+          postData = res['results'];
+        },
+        error =>{
+          console.error(error);
+        }
+      )
+      this.accion="Desapuntar";
+    }//else(this.accion=="Desapuntar"){    }
   }
 
 }
