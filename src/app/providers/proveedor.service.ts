@@ -11,6 +11,13 @@ export class ProveedorService {
     return this.http.get('http://localhost:3000/actividades');
   }
 
+  obtenerActividadesRecomendadas(id, esSocio): Observable<any> {
+    var consulta="recomendadasVoluntario";
+    if(esSocio)
+      consulta="recomendadasSocio";
+    return this.http.get('http://localhost:3000/actividades/' + consulta + "?id=" + id);
+  }
+
   obtenerActividad(i): Observable<any>{
     return this.http.get('http://localhost:3000/actividades?id='+ i);
   }
@@ -44,4 +51,33 @@ export class ProveedorService {
     console.log(JSON.stringify(postData));
     return this.http.post("http://localhost:3000/actividades/" + consulta, JSON.stringify(postData), httpOptions);
   }
+
+  desapuntarse(postData, esSocio): Observable<any>{
+    var consulta="eliminarParticipacionVoluntario";
+    if(esSocio)
+      consulta="eliminarParticipacionSocio";
+
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
+    console.log(JSON.stringify(postData));
+    return this.http.post("http://localhost:3000/actividades/" + consulta, JSON.stringify(postData), httpOptions);
+  }
+
+  misActividadesRealizadas(id, esSocio): Observable<any>{
+    var consulta="realizadasVoluntario";
+    if(esSocio)
+      consulta="realizadasSocio";
+
+      return this.http.get('http://localhost:3000/actividades/' + consulta + '?id='+ id);
+  }
+  misActividadesProximas(id, esSocio): Observable<any>{
+    var consulta="proximasVoluntario";
+    if(esSocio)
+      consulta="proximasSocio";
+
+      return this.http.get('http://localhost:3000/actividades/' + consulta + '?id='+ id);
+    }
 }

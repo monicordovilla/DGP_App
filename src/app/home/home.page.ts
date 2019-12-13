@@ -11,6 +11,9 @@ export class HomePage {
   actividades=[];
   categorias=[];
 
+  usuario=1;
+  esSocio=true;
+
   constructor(public proveedor:ProveedorService){
     this.ionViewDidLoad();
   }
@@ -18,7 +21,7 @@ export class HomePage {
   ionViewDidLoad(){
     let dateTime;
     let parts;
-    this.proveedor.obtenerActividades().subscribe(
+    this.proveedor.obtenerActividadesRecomendadas(this.usuario, this.esSocio).subscribe(
       (data) => {
         this.actividades = data;
 
