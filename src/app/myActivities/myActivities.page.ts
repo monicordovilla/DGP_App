@@ -14,7 +14,7 @@ export class myActivitiesPage {
   categoriasProximas=[];
   categoriasRealizadas=[];
 
-  usuario=1;
+  usuario=2;
   esSocio=true;
 
   constructor(public proveedor:ProveedorService){
@@ -47,7 +47,6 @@ export class myActivitiesPage {
     this.proveedor.misActividadesProximas(this.usuario, this.esSocio).subscribe(
       (data) => {
         this.actividadesProximas = data;
-
         for(var i=0; i<this.actividadesProximas.length; i++){
           dateTime = this.actividadesProximas[i].fecha;
           parts= dateTime.split(/[- :TZ]/);
@@ -63,7 +62,6 @@ export class myActivitiesPage {
           console.log(<any>error);
       }
     )
-    
   }
   
 

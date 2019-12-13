@@ -12,8 +12,8 @@
           <h2>Próximas actividades</h2>
           <ion-button color="dark" fill="clear"  (click)='desplegar("proximas")'><img src="../assets/icon/mas.png" alt="mas"></ion-button>
         </div>
-        <div id = "proximas" class = "proximas" ion-item *ngFor="let actividad of actividadesProximas; let indice=index">
-            <div class="actividad">
+        <div id = "proximas" class = "proximas">
+            <div class="actividad" ion-item *ngFor="let actividad of actividadesProximas; let indice=index">
               <h3><a [routerLink]="['/actividad', actividad.id]">{{actividad.nombre}}</a></h3>
               <div id="contenido">
                   <a [routerLink]="['/actividad', actividad.id]" ><img src={{actividad.imagen}} alt="imagen"/></a>
@@ -21,7 +21,7 @@
                   <h4>{{actividad.lugar}}</h4>
                   <h4>{{actividad.fecha}}</h4>
                   <div id="categorias" >
-                    <div class="categorias" *ngFor="let categoria of categorias[indice]">  
+                    <div class="categorias" *ngFor="let categoria of categoriasProximas[indice]">  
                         <img src={{categoria.imagen}} alt="imagen"/>
                     </div>
                   </div>
@@ -36,8 +36,8 @@
           <h2>Actividades realizadas</h2>
           <ion-button color="dark" fill="clear"  (click)='desplegar("realizadas")'><img src="../assets/icon/mas.png" alt="mas"></ion-button>
         </div>
-        <div id = "realizadas" class = "realizadas" ion-item *ngFor="let actividad of actividadesRealizadas; let indice=index">
-            <div class="actividad">
+        <div id = "realizadas" class = "realizadas">
+            <div class="actividad" ion-item *ngFor="let actividad of actividadesRealizadas; let indice=index">
               <h3><a [routerLink]="['/actividad', actividad.id]">{{actividad.nombre}}</a></h3>
               <div id="contenido">
                   <a [routerLink]="['/actividad', actividad.id]" ><img src={{actividad.imagen}} alt="imagen"/></a>
@@ -45,7 +45,7 @@
                   <h4>{{actividad.lugar}}</h4>
                   <h4>{{actividad.fecha}}</h4>
                   <div id="categorias" >
-                    <div class="categorias" *ngFor="let categoria of categorias[indice]">  
+                    <div class="categorias" *ngFor="let categoria of categoriasRealizadas[indice]">  
                         <img src={{categoria.imagen}} alt="imagen"/>
                     </div>
                   </div>

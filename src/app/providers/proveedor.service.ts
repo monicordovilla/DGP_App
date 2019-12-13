@@ -67,17 +67,17 @@ export class ProveedorService {
   }
 
   misActividadesRealizadas(id, esSocio): Observable<any>{
-    var consulta="realizadasVoluntario";
+    var consulta="misActividadesVoluntario";
     if(esSocio)
-      consulta="realizadasSocio";
+      consulta="misActividadesSocio";
 
-      return this.http.get('http://localhost:3000/actividades/' + consulta + '?id='+ id);
+      return this.http.get('http://localhost:3000/actividades/' + consulta + '?id='+ id +  '&proximas=0');
   }
   misActividadesProximas(id, esSocio): Observable<any>{
-    var consulta="proximasVoluntario";
+    var consulta="misActividadesVoluntario";
     if(esSocio)
-      consulta="proximasSocio";
+      consulta="misActividadesSocio";
 
-      return this.http.get('http://localhost:3000/actividades/' + consulta + '?id='+ id);
+      return this.http.get('http://localhost:3000/actividades/' + consulta + '?id='+ id + '&proximas=1');
     }
 }

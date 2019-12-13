@@ -14,13 +14,6 @@ export class HeaderPage {
   }
 
   toggleMenu(){
-    if(this.menuCtrls.isOpen){
       this.menuCtrls.toggle();
-      //document.getElementById("menu").style.display ='none';
-    }
-    else{
-     // document.getElementById("menu").style.display ='block';
-      this.menuCtrls.toggle();
-    }
   }
 }
