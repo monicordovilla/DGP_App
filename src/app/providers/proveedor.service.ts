@@ -33,17 +33,17 @@ export class ProveedorService {
   }
 
   apuntadoActividad(id_part, id_act, esSocio): Observable<any>{
-    var consulta="apuntadoVoluntario";
+    var tipo=1;
     if(esSocio)
-      consulta="apuntadoSocio";
+      tipo=0;
 
-    return this.http.get(this.ip + '/actividades/' + consulta + '?id_part='+ id_part + '&id_act=' + id_act);
+    return this.http.get(this.ip + '/actividades//apuntado?id_part='+ id_part + '&id_act=' + id_act + '&tipo=' + tipo);
   }
 
   apuntarse(postData, esSocio): Observable<any>{
-    var consulta="participarVoluntario";
+    var tipo=1;
     if(esSocio)
-      consulta="participarSocio";
+      tipo=0;
 
     let httpOptions = {
       headers: new HttpHeaders({
@@ -51,13 +51,13 @@ export class ProveedorService {
       })
     }
     console.log(JSON.stringify(postData));
-    return this.http.post(this.ip + "actividades/" + consulta, JSON.stringify(postData), httpOptions);
+    return this.http.post(this.ip + "/actividades/participar?tipo=" + tipo, JSON.stringify(postData), httpOptions);
   }
 
   desapuntarse(postData, esSocio): Observable<any>{
-    var consulta="eliminarParticipacionVoluntario";
+    var tipo=1;
     if(esSocio)
-      consulta="eliminarParticipacionSocio";
+      tipo=0;
 
     let httpOptions = {
       headers: new HttpHeaders({
@@ -65,7 +65,7 @@ export class ProveedorService {
       })
     }
     console.log(JSON.stringify(postData));
-    return this.http.post(this.ip + '/actividades' + consulta, JSON.stringify(postData), httpOptions);
+    return this.http.post(this.ip + "3000/actividades/eliminarParticipacion?tipo="+ tipo, JSON.stringify(postData), httpOptions);
   }
 
   enviarLogin(postData): Observable<any>{// Http Options
@@ -79,17 +79,29 @@ export class ProveedorService {
   }
 
   misActividadesRealizadas(id, esSocio): Observable<any>{
-    var consulta="misActividadesVoluntario";
+    var tipo=1;
     if(esSocio)
-      consulta="misActividadesSocio";
+      tipo=0;
 
-      return this.http.get(this.ip + '/actividades/' + consulta + '?id='+ id +  '&proximas=0');
+      return this.http.get(this.ip + '/actividades/misActividades?id='+ id + '&proximas=0&tipo=' + tipo);
   }
   misActividadesProximas(id, esSocio): Observable<any>{
-    var consulta="misActividadesVoluntario";
+    var tipo=1;
     if(esSocio)
-      consulta="misActividadesSocio";
+      tipo=0;
 
       return this.http.get(this.ip + '/actividades/' + consulta + '?id='+ id + '&proximas=1');
     }
+
+  buscarActividades(valor, esSocio): Observable<any>{
+    var tipo=1;
+    if(esSocio)
+      tipo=0;
+
+      return this.http.get(this.ip + '/actividades/buscarActividad' + '?valor='+ valor + '&tipo=' + tipo);
+  }
+
+  obtenerMisCategorias(id): Observable<any>{
+      return this.http.get(this.ip + '/actividades/misCategorias?id='+ id); 
+  }
 }
