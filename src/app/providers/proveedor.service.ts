@@ -7,7 +7,7 @@ export class ProveedorService {
 
   constructor(public http:HttpClient) { }
 
-  ip = "http://192.168.102.3:3000"
+  ip = "http://localhost:3000"
 
   obtenerActividades(): Observable<any>{
     return this.http.get(this.ip + '/actividades');

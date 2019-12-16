@@ -28,24 +28,21 @@ main{
 
 #busqueda{
   background-color: $textcolor;
-  padding: 2%;
-  margin-bottom: -2px;
   display: flex;
+  border-style: solid;
+  border-width: 2px;
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
   border-radius: 8px;
 }
 
-#busqueda > input{
-  width: 280px;
-  font-size: 12px;
+#busqueda > ion-searchbar{
+  width: 295px;
 }
 
-#busqueda > a{
-  background: transparent;
+#busqueda > ion-button{
   width: 40px;
-  padding-left: 10px;
 }
 
 ion-button{
@@ -91,7 +88,6 @@ ion-button{
 h3{
     margin: 0;
     font-size: 16px;
-    margin-bottom: 0;
     font-weight: bold;
     padding-top: 15px;
 }
@@ -104,7 +100,7 @@ h4{
     padding-left: 10px;
 }
 
-#filtros > .filtro > .opcion, #filtro > .filtro >.opcion{
+#filtros > form >.filtro > .opcion, #filtro > .filtro >.opcion{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -113,23 +109,24 @@ h4{
     margin: 2.5%;
 }
 
-#filtros > #filtro > .filtro > .opcion > input[type=checkbox]{
+#filtros > form > #filtro > .filtro > .opcion > ion-check{
     transform: scale(1.6);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    margin-top: 10px;
     border: none;
 }
 
-#filtros > #filtro > .filtro > .opcion > img{
-  width: 75px;
+#filtros > form > #filtro > .filtro > .opcion > img{
+  width: 50px;
 }
 
-#filtros > .filtro > input[type=date]{
-    margin-left: 5px;
+#filtros > form > .filtro > ion-input{
+    size: 20px;
     width: 100px;
     font-size: 10px;
 }
 
-#filtros > .filtro > select{
+#filtros > form > .filtro > ion-select{
 
   margin-top: 15px;
   margin-left: 15px;
@@ -143,6 +140,15 @@ h2{
   padding-bottom: 4%;
   font-weight: bold;
   text-align: center;
+}
+
+#filtros > form > .boton{
+  height: 50px;
+}
+#filtros > form > .boton > ion-button{
+  float: right;
+  width: 50px;
+  height: 50px;
 }
 
 
