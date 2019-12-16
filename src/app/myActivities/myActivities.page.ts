@@ -14,7 +14,7 @@ export class myActivitiesPage {
   categoriasProximas=[];
   categoriasRealizadas=[];
 
-  usuario=2;
+  usuario=1;
   esSocio=true;
 
   constructor(public proveedor:ProveedorService){

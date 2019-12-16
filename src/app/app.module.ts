@@ -13,6 +13,9 @@ import {ComponentsModule} from './components.module';
 import {ProveedorService} from './providers/proveedor.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import{ImagePicker} from '@ionic-native/image-picker/ngx';
+import {File} from '@ionic-native/file/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -21,7 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    ProveedorService
+    ProveedorService,
+    ImagePicker,
+    File
   ],
   bootstrap: [AppComponent]
 })

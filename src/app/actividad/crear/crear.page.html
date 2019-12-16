@@ -23,9 +23,10 @@
 
       <span><ion-label>Categoria</ion-label></span><br>
 
-      <ion-select name="cat" id="rol" [interfaceOptions]="customPopoverOptions" interface="popover" class="select" placeholder="Escoja la categoria de la actividad" required multiple>
-        <ion-select-option name="cat1" id="cat1" class="cat1" value="cat1">cat 1</ion-select-option>
-        <ion-select-option name="cat2" id="cat2" class="cat2" value="cat2">cat 2</ion-select-option>
+      <ion-select name="cat" id="rol" [interfaceOptions]="customPopoverOptions" interface="popover" class="select" placeholder="" required multiple>
+        <ion-select-option *ngFor="let categoria of categorias" >
+          {{categoria.nombre}}
+        </ion-select-option>
       </ion-select>
 
       <span ><ion-label>Nombre actividad</ion-label></span>

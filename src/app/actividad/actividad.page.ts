@@ -22,7 +22,7 @@ export class ActividadPage {
 
   categorias = []
 
-  usuario = 4;
+  usuario = 1;
   esSocio = true;
   accion="";
   color_button="dark";
