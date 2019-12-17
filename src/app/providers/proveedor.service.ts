@@ -90,18 +90,37 @@ export class ProveedorService {
     if(esSocio)
       tipo=0;
 
-      return this.http.get(this.ip + '/actividades/' + consulta + '?id='+ id + '&proximas=1');
+      return this.http.get(this.ip + '/actividades/misActividades?id='+ id + '&proximas=1&tipo=' + tipo);
     }
 
-  buscarActividades(valor, esSocio): Observable<any>{
+  buscarActividades(valor, esSocio, filtros): Observable<any>{
     var tipo=1;
+    var consulta='';
     if(esSocio)
       tipo=0;
 
-      return this.http.get(this.ip + '/actividades/buscarActividad' + '?valor='+ valor + '&tipo=' + tipo);
+    if(valor!=""){
+      consulta+='&valor=' + valor;
+    }
+    if(filtros!=null){
+      if(filtros.tipo==2 || filtros.tipo==3){
+        consulta += '&tipoAct=' + filtros.tipo;
+      }
+      if(filtros.fecha_inicio!=null)
+        consulta += '&fechaIni=' + filtros.fecha_inicio;
+      if(filtros.fecha_fin!=null)
+        consulta += '&fechaFin=' + filtros.fecha_fin;
+      if(filtros.categorias.length>0){
+        consulta += '&categorias=' + filtros.categorias;
+      }
+    }
+    return this.http.get(this.ip + '/actividades/buscarActividad' + '?tipo=' + tipo + consulta);
   }
 
-  obtenerMisCategorias(id): Observable<any>{
-      return this.http.get(this.ip + '/actividades/misCategorias?id='+ id); 
+  obtenerMisCategorias(id, esSocio): Observable<any>{
+    var tipo=1;
+    if(esSocio)
+      tipo=0;
+      return this.http.get(this.ip + '/actividades/misCategorias?id='+ id + '&tipo=' + tipo); 
   }
 }

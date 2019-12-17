@@ -101,7 +101,7 @@ h4{
 }
 
 #filtros > form >.filtro > .opcion, #filtro > .filtro >.opcion{
-    display: flex;
+    display: inline-flex;
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
@@ -109,29 +109,30 @@ h4{
     margin: 2.5%;
 }
 
-#filtros > form > #filtro > .filtro > .opcion > ion-check{
-    transform: scale(1.6);
-    margin-bottom: 10px;
-    margin-top: 10px;
-    border: none;
+#filtros > form > #filtro > .filtro > .opcion > ion-button{
+  width: 75px;
+  height: 65px;
 }
 
-#filtros > form > #filtro > .filtro > .opcion > img{
-  width: 50px;
+#filtros > form > #filtro > .filtro > .opcion > ion-button > img{
+  width: 80%;
+  height: 80%;
 }
 
-#filtros > form > .filtro > ion-input{
-    size: 20px;
-    width: 100px;
-    font-size: 10px;
+#filtros > form > .filtro > .opcion > ion-input{
+    font-size: 14px;
 }
 
-#filtros > form > .filtro > ion-select{
+#filtros > form > .filtro > ion-item > h3{
+  color: $textcolor;
+  text-align: center;
+  padding: 0;
+}
 
-  margin-top: 15px;
+#filtros > form > .filtro > ion-item > ion-select{
   margin-left: 15px;
   padding: 2px;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 h2{

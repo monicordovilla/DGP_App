@@ -54,7 +54,7 @@ export class HomePage {
     let valor=event.target.value;
 
     if(valor!==''){
-      this.proveedor.buscarActividades(valor, this.esSocio).subscribe(
+      this.proveedor.buscarActividades(valor, this.esSocio, null).subscribe(
         (data) => {
           this.actividades = data;
           this.categorias=[];

@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProveedorService } from '../providers/proveedor.service';
 
-import{ImagePicker} from '@ionic-native/image-picker/ngx';
-import {File} from '@ionic-native/file/ngx';
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.page.html',
@@ -13,18 +10,20 @@ export class SearchPage implements OnInit {
 
   actividades=[];
   categorias=[];
-  mis_categorias=[];
   esSocio=true;
   usuario=1;
+  mis_categorias=[];
 
   //filtros
-  tipo=[];
-  fecha_inicio;
-  fecha_fin;
-  categorias_seleccionadas=[];
-  
+  filtros = {
+    categorias:[],
+    valor:"",
+    tipo:null,
+    fecha_inicio:null,
+    fecha_fin: null
+  }
 
-  constructor(public proveedor:ProveedorService, public imagePîcker:ImagePicker, public file:File){
+  constructor(public proveedor:ProveedorService){
     this.ionViewDidLoad();
   }
 
@@ -32,12 +31,20 @@ export class SearchPage implements OnInit {
   }
 
   ionViewDidLoad(){
-    this.proveedor.obtenerMisCategorias(this.usuario).subscribe(
+    this.proveedor.obtenerMisCategorias(this.usuario, this.esSocio).subscribe(
       (data) => {
-        this.mis_categorias = data;
-        console.log(this.mis_categorias);
-        for(let i=0; i<this.mis_categorias.length; i++)
-          this.categorias_seleccionadas.push(false);
+        for(let i=0; i<data.length; i++){
+          var categoria = {
+            nombre: null,
+            id: null,
+            imagen: null,
+            select: "dark"
+          };
+          categoria.nombre = data[i].nombre;
+          categoria.imagen = data[i].imagen;
+          categoria.id = data[i].id;
+          this.mis_categorias.push(categoria);
+        }
       },
       error => {
           console.log(<any>error);
@@ -50,18 +57,33 @@ export class SearchPage implements OnInit {
   }
 
   aplicarFiltros(){
-    console.log( "FECHA: " + this.fecha_inicio + this.fecha_fin);
-    console.log( "CATEGORIAS: " + this.mis_categorias[0]);
+    this.filtros.categorias=[];
+    for(var i=0; i<this.mis_categorias.length; i++)
+      if(this.mis_categorias[i].select==="danger")
+        this.filtros.categorias.push(this.mis_categorias[i].id);
+
+      this.busqueda(true);
   }
 
-  change(event, id){
-    this.categorias_seleccionadas[id]!=this.categorias_seleccionadas[id];
+  change(indice){
+    if(this.mis_categorias[indice].select === "dark")
+     this.mis_categorias[indice].select = "danger";
+    else
+      this.mis_categorias[indice].select = "dark";
   }
 
   buscar(event){
-    let valor=event.target.value;
+    this.filtros.valor=event.target.value;
+    this.busqueda(false);
 
-    this.proveedor.buscarActividades(valor, this.esSocio).subscribe(
+  }
+
+  busqueda(filtros){
+    var f=null;
+    if(filtros)
+      f=this.filtros;
+    
+    this.proveedor.buscarActividades(this.filtros.valor, this.esSocio, f).subscribe(
       (data) => {
         this.actividades = data;
         this.categorias=[];
@@ -84,6 +106,5 @@ export class SearchPage implements OnInit {
           console.log(<any>error);
       }
     )
-
   }
 }
