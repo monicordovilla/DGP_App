@@ -10,8 +10,8 @@ export class SearchPage implements OnInit {
 
   actividades=[];
   categorias=[];
-  esSocio=true;
-  usuario=1;
+  esSocio;
+  usuario;
   mis_categorias=[];
 
   //filtros
@@ -25,6 +25,8 @@ export class SearchPage implements OnInit {
 
   constructor(public proveedor:ProveedorService){
     this.ionViewDidLoad();
+    this.usuario=proveedor.getIdTipo();
+    this.esSocio=proveedor.getEsSocio();
   }
 
   ngOnInit() {

@@ -14,11 +14,15 @@ export class HomePage {
   categorias=[];
 
   tipo="RECOMENDADAS";
-  usuario=1;
-  esSocio=true;
+  usuario;
+  esSocio;
 
   constructor(public proveedor:ProveedorService){
+    this.usuario=proveedor.getIdTipo();
+    this.esSocio=proveedor.getEsSocio();
+
     this.ionViewDidLoad();
+    console.log(this.esSocio + "  eeeee  " + proveedor.getId());
   }
 
   ionViewDidLoad(){

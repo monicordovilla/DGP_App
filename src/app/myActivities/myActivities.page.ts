@@ -14,11 +14,13 @@ export class myActivitiesPage {
   categoriasProximas=[];
   categoriasRealizadas=[];
 
-  usuario=1;
-  esSocio=true;
+  usuario;
+  esSocio;
 
   constructor(public proveedor:ProveedorService){
     this.ionViewDidLoad();
+    this.usuario=proveedor.getIdTipo();
+    this.esSocio=proveedor.getEsSocio();
   }
 
   ionViewDidLoad(){

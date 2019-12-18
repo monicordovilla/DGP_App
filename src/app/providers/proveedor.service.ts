@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable()
 export class ProveedorService {
+
+  private idPersona=null //Id en la tabla de personas
+  private idTipo=null  //Id en la tabla de tipo de persona (Socio o Voluntario)
+  private esSocio=null //Si es de tipo socio -> true
 
   constructor(public http:HttpClient) { }
 
@@ -37,7 +42,7 @@ export class ProveedorService {
     if(esSocio)
       tipo=0;
 
-    return this.http.get(this.ip + '/actividades//apuntado?id_part='+ id_part + '&id_act=' + id_act + '&tipo=' + tipo);
+    return this.http.get(this.ip + '/actividades/apuntado?id_part='+ id_part + '&id_act=' + id_act + '&tipo=' + tipo);
   }
 
   apuntarse(postData, esSocio): Observable<any>{
@@ -122,5 +127,45 @@ export class ProveedorService {
     if(esSocio)
       tipo=0;
       return this.http.get(this.ip + '/actividades/misCategorias?id='+ id + '&tipo=' + tipo); 
+  }
+
+  crearActividad(actividad): Observable<any>{
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
+    console.log(JSON.stringify(actividad));
+    return this.http.post(this.ip + "/actividades/addActividadIndividual", JSON.stringify(actividad), httpOptions);
+  }
+
+  getId(){
+    return this.idPersona;
+  }
+
+  getEsSocio(){
+    return this.esSocio;
+  }
+
+  getIdTipo(){
+    return this.idTipo;
+  }
+
+  setUsuario(id, username){
+    this.idPersona=id;
+
+    this.http.get(this.ip + '/usuarios/esSocio?username=' + username).subscribe(
+      (res) => {
+        console.log();
+        if(res[0]!=null){
+          this.esSocio=true;
+          this.idTipo=res[0].id;
+          console.log("ID: " + this.getId() + " ID TIPO: " + this.getIdTipo() + "ES_SOCIO: " + this.getEsSocio());
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    )
   }
 }

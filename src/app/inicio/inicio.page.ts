@@ -50,6 +50,7 @@ export class InicioPage implements OnInit {
           }
           else {
               this.auth.login(this.sesion.username);
+              this.proveedor.setUsuario(res[0].id, res[0].username);
               location.assign(location.origin + '/home' ); //Borrar si podemos hacer bien el enrutado
           }
         },
@@ -58,6 +59,7 @@ export class InicioPage implements OnInit {
           this.presentAlert();
         }
       )
+
     }
 
     ngOnInit() {

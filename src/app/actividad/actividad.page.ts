@@ -22,8 +22,8 @@ export class ActividadPage {
 
   categorias = []
 
-  usuario = 1;
-  esSocio = true;
+  usuario;
+  esSocio;
   accion="";
   color_button="dark";
 
@@ -32,6 +32,8 @@ export class ActividadPage {
     this.id =  this.rutaActiva.snapshot.params.id;
     this.id=parseInt(this.id);
     this.ionViewDidLoad();
+    this.usuario=proveedor.getIdTipo();
+    this.esSocio=proveedor.getEsSocio();
   }
 
   ionViewDidLoad(){
