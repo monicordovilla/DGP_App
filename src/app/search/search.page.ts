@@ -28,6 +28,8 @@ export class SearchPage{
 
   constructor(public proveedor:ProveedorService, public auth: AuthenticationService){
     this.ionViewDidLoad();
+    this.usuario=proveedor.getIdTipo();
+    this.esSocio=proveedor.getEsSocio();
   }
 
   inicializarUsuario() {

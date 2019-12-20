@@ -21,6 +21,7 @@ export class HomePage{
 
   constructor(public proveedor:ProveedorService, public auth: AuthenticationService){
     this.ionViewDidLoad();
+    console.log(this.esSocio + "  eeeee  " + proveedor.getId());
   }
 
   inicializarUsuario() {

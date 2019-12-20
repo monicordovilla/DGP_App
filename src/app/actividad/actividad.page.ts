@@ -33,6 +33,8 @@ export class ActividadPage {
     this.id =  this.rutaActiva.snapshot.params.id;
     this.id=parseInt(this.id);
     this.ionViewDidLoad();
+    this.usuario=proveedor.getIdTipo();
+    this.esSocio=proveedor.getEsSocio();
   }
 
   inicializarUsuario() {

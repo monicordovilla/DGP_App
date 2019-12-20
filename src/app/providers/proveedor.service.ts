@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Injectable()
 export class ProveedorService {
+
+  private idPersona=null //Id en la tabla de personas
+  private idTipo=null  //Id en la tabla de tipo de persona (Socio o Voluntario)
+  private esSocio=null //Si es de tipo socio -> true
 
   constructor(public http:HttpClient) { }
 
@@ -37,7 +42,7 @@ export class ProveedorService {
     if(esSocio)
       tipo=0;
 
-    return this.http.get(this.ip + '/actividades//apuntado?id_part='+ id_part + '&id_act=' + id_act + '&tipo=' + tipo);
+    return this.http.get(this.ip + '/actividades/apuntado?id_part='+ id_part + '&id_act=' + id_act + '&tipo=' + tipo);
   }
 
   apuntarse(postData, esSocio): Observable<any>{
