@@ -65,7 +65,7 @@ export class ProveedorService {
       })
     }
     console.log(JSON.stringify(postData));
-    return this.http.post(this.ip + "3000/actividades/eliminarParticipacion?tipo="+ tipo, JSON.stringify(postData), httpOptions);
+    return this.http.post(this.ip + "/actividades/eliminarParticipacion?tipo="+ tipo, JSON.stringify(postData), httpOptions);
   }
 
   enviarLogin(postData): Observable<any>{// Http Options
@@ -122,5 +122,28 @@ export class ProveedorService {
     if(esSocio)
       tipo=0;
       return this.http.get(this.ip + '/actividades/misCategorias?id='+ id + '&tipo=' + tipo); 
+  }
+
+
+  crearActividad(actividad): Observable<any>{
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }
+    console.log(JSON.stringify(actividad));
+    return this.http.post(this.ip + "/actividades/addActividadIndividual", JSON.stringify(actividad), httpOptions);
+  }
+
+  esSocio(nombre): Observable<any>{
+    return this.http.get(this.ip + '/usuarios/esSocio?username=' + nombre);
+  }
+
+  esVoluntario(nombre): Observable<any>{
+    return this.http.get(this.ip + '/usuarios/esVoluntario?username=' + nombre);
+  }
+
+  obtenerParticipantes(id):  Observable<any>{
+    return this.http.get(this.ip + '/usuarios/participantesInfo?id=' + id);
   }
 }
