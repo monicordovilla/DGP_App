@@ -21,8 +21,6 @@ export class myActivitiesPage {
 
   constructor(public proveedor:ProveedorService, public auth: AuthenticationService){
     this.ionViewDidLoad();
-    this.usuario=proveedor.getIdTipo();
-    this.esSocio=proveedor.getEsSocio();
   }
 
   inicializarUsuario() {

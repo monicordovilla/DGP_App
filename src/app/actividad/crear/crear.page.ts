@@ -27,7 +27,6 @@ export class CrearPage{
 
   constructor(public proveedor:ProveedorService,  public auth: AuthenticationService){
     this.ionViewDidLoad();
-    this.id=proveedor.getId();
   }
 
   inicializarUsuario() {

@@ -6,10 +6,6 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Injectable()
 export class ProveedorService {
 
-  private idPersona=null //Id en la tabla de personas
-  private idTipo=null  //Id en la tabla de tipo de persona (Socio o Voluntario)
-  private esSocio=null //Si es de tipo socio -> true
-
   constructor(public http:HttpClient) { }
 
   ip = "http://localhost:3000"
