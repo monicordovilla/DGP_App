@@ -122,7 +122,7 @@ export class ProveedorService {
     var tipo=1;
     if(esSocio)
       tipo=0;
-      return this.http.get(this.ip + '/actividades/misCategorias?id='+ id + '&tipo=' + tipo); 
+      return this.http.get(this.ip + '/actividades/misCategorias?id='+ id + '&tipo=' + tipo);
   }
 
 
