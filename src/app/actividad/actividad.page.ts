@@ -110,16 +110,16 @@ export class ActividadPage {
       }
     )
 
-      this.proveedor.obtenerCategoriasActividad(this.id).subscribe(
-        (data) => {
-          this.categorias=data;
-        },
-        error => {
-          console.log(<any>error);
-        }
-      )
-      
-      this.actualizar();
+    this.proveedor.obtenerCategoriasActividad(this.id).subscribe(
+      (data) => {
+        this.categorias=data;
+      },
+      error => {
+        console.log(<any>error);
+      }
+    )
+    
+    this.actualizar();
 
   }
 
@@ -127,18 +127,18 @@ export class ActividadPage {
   actualizar(){
     this.proveedor.apuntadoActividad(this.usuario, this.id, this.esSocio).subscribe(
       (data) => {
-        if(data[0]!=undefined)
-          if( this.actividad.finalizada){
+        if(data[0]!=undefined){
+          if(this.actividad.finalizada){
             this.accion="Valorar";
             this.color_button="danger";
           }else{
             this.accion="Desapuntar";
             this.color_button="danger";
           }
-        else{
+        }else{
           this.accion="Apuntar";  
           this.color_button="dark"; 
-        }      
+        }   
       },
       error => {
         console.log(<any>error);
